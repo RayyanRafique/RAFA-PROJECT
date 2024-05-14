@@ -31,11 +31,11 @@ namespace RAFA_PROJECT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SignInButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, SignInButton.Width, SignInButton.Height, 20, 20));
-            SignUpButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, SignUpButton.Width, SignUpButton.Height, 20, 20));
+            signInButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, signInButton.Width, signInButton.Height, 20, 20));
+            signUpButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, signUpButton.Width, signUpButton.Height, 20, 20));
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void richTextBox1_TextChanged(object sender, EventArgs e) // Also Password Text Box
         {
 
         }
@@ -45,7 +45,7 @@ namespace RAFA_PROJECT
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void richTextBox2_TextChanged(object sender, EventArgs e) // Also Email Text Box
         {
 
         }
@@ -58,6 +58,42 @@ namespace RAFA_PROJECT
         private void SignUpButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void emailTB_Enter(object sender, EventArgs e)
+        {
+            if (emailTB.Text == "Email")
+            {
+                emailTB.Text = "";
+                emailTB.ForeColor = Color.Black;
+            }
+        }
+
+        private void passwordTB_Enter(object sender, EventArgs e)
+        {
+            if (passwordTB.Text == "Password")
+            {
+                passwordTB.Text = "";
+                passwordTB.ForeColor = Color.Black;
+            }
+        }
+
+        private void emailTB_Leave(object sender, EventArgs e)
+        {
+            if (emailTB.Text == "")
+            {
+                emailTB.Text = "Email";
+                emailTB.ForeColor = Color.Gray;
+            }
+        }
+
+        private void passwordTB_Leave(object sender, EventArgs e)
+        {
+            if (passwordTB.Text == "")
+            {
+                passwordTB.Text = "Password";
+                passwordTB.ForeColor = Color.Gray;
+            }
         }
     }
 }
