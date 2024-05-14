@@ -36,6 +36,7 @@
             this.passwordTB = new System.Windows.Forms.RichTextBox();
             this.confirmPassTB = new System.Windows.Forms.RichTextBox();
             this.signUpButton = new System.Windows.Forms.Button();
+            this.termsCondCB = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,12 +135,25 @@
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = false;
             // 
+            // termsCondCB
+            // 
+            this.termsCondCB.AutoSize = true;
+            this.termsCondCB.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termsCondCB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.termsCondCB.Location = new System.Drawing.Point(37, 663);
+            this.termsCondCB.Name = "termsCondCB";
+            this.termsCondCB.Size = new System.Drawing.Size(183, 19);
+            this.termsCondCB.TabIndex = 8;
+            this.termsCondCB.Text = "Accept Terms and Conditions";
+            this.termsCondCB.UseVisualStyleBackColor = true;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(36)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(414, 811);
+            this.Controls.Add(this.termsCondCB);
             this.Controls.Add(this.signUpButton);
             this.Controls.Add(this.confirmPassTB);
             this.Controls.Add(this.passwordTB);
@@ -153,6 +167,7 @@
             this.Click += new System.EventHandler(this.SignUp_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -165,5 +180,6 @@
         private System.Windows.Forms.RichTextBox passwordTB;
         private System.Windows.Forms.RichTextBox confirmPassTB;
         private System.Windows.Forms.Button signUpButton;
+        private System.Windows.Forms.CheckBox termsCondCB;
     }
 }
