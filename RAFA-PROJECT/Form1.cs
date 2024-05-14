@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -35,7 +36,7 @@ namespace RAFA_PROJECT
             SignUpButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, SignUpButton.Width, SignUpButton.Height, 20, 20));
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -45,19 +46,33 @@ namespace RAFA_PROJECT
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void SignInButton_Click(object sender, EventArgs e)
+        private /*async*/ void SignInButton_Click(object sender, EventArgs e)
         {
+            //string email = EmailTextBox.Text;
+            //string password = PasswordTextBox.Text;
 
+            //var user = await client.Find(u => u.Email == email).FirstOrDefaultAsync();
+
+            //if (user != null && user.Password == password)
+            //{
+            //    MessageBox.Show("Sign in successful!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid email or password!");
+            //}
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
