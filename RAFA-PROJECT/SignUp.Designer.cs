@@ -62,6 +62,7 @@
             this.fNameTB.Size = new System.Drawing.Size(340, 58);
             this.fNameTB.TabIndex = 2;
             this.fNameTB.Text = "First Name";
+            this.fNameTB.TextChanged += new System.EventHandler(this.fNameTB_TextChanged);
             this.fNameTB.Enter += new System.EventHandler(this.fNameTB_Enter);
             this.fNameTB.Leave += new System.EventHandler(this.fNameTB_Leave);
             // 
@@ -118,6 +119,7 @@
             this.confirmPassTB.Size = new System.Drawing.Size(340, 58);
             this.confirmPassTB.TabIndex = 6;
             this.confirmPassTB.Text = "Confirm Password";
+            this.confirmPassTB.TextChanged += new System.EventHandler(this.confirmPassTB_TextChanged);
             this.confirmPassTB.Enter += new System.EventHandler(this.confirmPassTB_Enter);
             this.confirmPassTB.Leave += new System.EventHandler(this.confirmPassTB_Leave);
             // 
@@ -134,6 +136,7 @@
             this.signUpButton.TabIndex = 7;
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = false;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // termsCondCB
             // 
@@ -146,6 +149,7 @@
             this.termsCondCB.TabIndex = 8;
             this.termsCondCB.Text = "Accept Terms and Conditions";
             this.termsCondCB.UseVisualStyleBackColor = true;
+            this.termsCondCB.CheckedChanged += new System.EventHandler(this.termsCondCB_CheckedChanged);
             // 
             // SignUp
             // 
