@@ -8,11 +8,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
 
 namespace RAFA_PROJECT
 {
     public partial class Form1 : Form
     {
+        private readonly MongoClient client;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
@@ -24,10 +27,12 @@ namespace RAFA_PROJECT
                 int nHeightEllipse
             );
 
-        public Form1()
+        public Form1(MongoClient mongoClient)
         {
             InitializeComponent();
+            client = mongoClient;
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -35,7 +40,7 @@ namespace RAFA_PROJECT
             signUpButton.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, signUpButton.Width, signUpButton.Height, 20, 20));
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e) // Also Password Text Box
+        private void EmailTextBox_TextChanged(object sender, EventArgs e) // Also Password Text Box
         {
 
         }
@@ -45,19 +50,38 @@ namespace RAFA_PROJECT
 
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e) // Also Email Text Box
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e) // Also Email Text Box
         {
 
         }
 
-        private void SignInButton_Click(object sender, EventArgs e)
+        private async void SignInButton_Click(object sender, EventArgs e)
         {
+            string email = emailTB.Text;
+            string password = passwordTB.Text;
 
+            var usersCollection = client.GetDatabase("ReLife").GetCollection<User>("users");
+
+            var user = await usersCollection.Find(u => u.Email == email).FirstOrDefaultAsync();
+
+            if (user != null && user.Password == password)
+            {
+                MessageBox.Show("Sign in successful!");
+            }
+            else
+            {
+                MessageBox.Show("Invalid email or password!");
+            }
+            this.Close();
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
+            // Creating an instance of the sign-up form
+            SignUp signUp = new SignUp(client);
 
+            signUp.Show();
+            this.Hide();
         }
 
         private void emailTB_Enter(object sender, EventArgs e)

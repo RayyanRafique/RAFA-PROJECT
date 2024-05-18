@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -7,6 +8,8 @@ namespace RAFA_PROJECT
 {
     public partial class SignUp : Form
     {
+        private readonly MongoClient client;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
@@ -17,9 +20,10 @@ namespace RAFA_PROJECT
                 int nWidthEllipse,
                 int nHeightEllipse
             );
-        public SignUp()
+        public SignUp(MongoClient mongoClient)
         {
             InitializeComponent();
+            client = mongoClient;
         }
 
         private void fNameTB_Enter(object sender, EventArgs e)
@@ -110,6 +114,11 @@ namespace RAFA_PROJECT
                 confirmPassTB.Text = "Confirm Password";
                 confirmPassTB.ForeColor = Color.Gray;
             }
+            //if (confirmPassTB.Text != passwordTB.Text)
+            //{
+            //    Console.WriteLine($"The password does not match!");
+            //}
+
         }
 
         private void SignUp_Load(object sender, EventArgs e)
@@ -118,6 +127,53 @@ namespace RAFA_PROJECT
         }
 
         private void SignUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fNameTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void signUpButton_Click(object sender, EventArgs e)
+        {
+            // Retrieve user input from text boxes
+            string fname = fNameTB.Text;
+            string lname = lNameTB.Text;
+            string email = emailTB.Text;
+            string password = passwordTB.Text;
+
+            // Create a new User object
+            User newUser = new User
+            {
+                fName = fname,
+                lName = lname,
+                Email = email,
+                Password = password
+            };
+
+            // Insert the new user into the MongoDB collection
+            var usersCollection = client.GetDatabase("ReLife").GetCollection<User>("users");
+            await usersCollection.InsertOneAsync(newUser);
+
+            MessageBox.Show("User signed up successfully!");
+
+            // Optionally, close the sign-up form or clear input fields
+            this.Close();
+            // Creating an instance of the sign-up form
+            Form1 signIn = new Form1(client);
+
+            signIn.Show();
+            
+        }
+
+        private void confirmPassTB_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void termsCondCB_CheckedChanged(object sender, EventArgs e)
         {
 
         }

@@ -60,7 +60,7 @@
             this.emailTB.Size = new System.Drawing.Size(340, 58);
             this.emailTB.TabIndex = 1;
             this.emailTB.Text = "Email";
-            this.emailTB.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.emailTB.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             this.emailTB.Enter += new System.EventHandler(this.emailTB_Enter);
             this.emailTB.Leave += new System.EventHandler(this.emailTB_Leave);
             // 
@@ -75,7 +75,7 @@
             this.passwordTB.Size = new System.Drawing.Size(340, 58);
             this.passwordTB.TabIndex = 2;
             this.passwordTB.Text = "Password";
-            this.passwordTB.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.passwordTB.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             this.passwordTB.Enter += new System.EventHandler(this.passwordTB_Enter);
             this.passwordTB.Leave += new System.EventHandler(this.passwordTB_Leave);
             // 
