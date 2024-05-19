@@ -67,6 +67,10 @@ namespace RAFA_PROJECT
             if (user != null && user.Password == password)
             {
                 MessageBox.Show("Sign in successful!");
+                // Create an instance of the main page and pass the username
+                MainPage mainPage = new MainPage(user.fName);
+                mainPage.Show();
+                this.Hide();
             }
             else
             {

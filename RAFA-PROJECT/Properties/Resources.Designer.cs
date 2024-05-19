@@ -123,6 +123,16 @@ namespace RAFA_PROJECT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_logout_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-logout-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menu_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-100", resourceCulture);
@@ -136,6 +146,16 @@ namespace RAFA_PROJECT.Properties {
         internal static System.Drawing.Bitmap icons8_menu_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_name_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-name-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

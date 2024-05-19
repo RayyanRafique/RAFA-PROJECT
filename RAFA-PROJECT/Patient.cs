@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace RAFA_PROJECT
 {
-    public partial class Settings : Form
+    public partial class Patient : Form
     {
-        public Settings()
+        public Patient()
         {
             InitializeComponent();
         }
+
+        
     }
 }
