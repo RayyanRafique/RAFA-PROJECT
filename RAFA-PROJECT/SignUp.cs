@@ -159,13 +159,12 @@ namespace RAFA_PROJECT
 
             MessageBox.Show("User signed up successfully!");
 
-            // Optionally, close the sign-up form or clear input fields
-            this.Close();
-            // Creating an instance of the sign-up form
-            Form1 signIn = new Form1(client);
-
-            signIn.Show();
             
+            // Close the sign-up form and open the main page
+            this.Close();
+            MainPage mainPage = new MainPage(newUser.fName); // Pass the first name or any identifier as needed
+            mainPage.Show();
+
         }
 
         private void confirmPassTB_TextChanged(object sender, EventArgs e)
