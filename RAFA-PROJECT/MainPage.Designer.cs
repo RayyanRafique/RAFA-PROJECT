@@ -159,7 +159,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(33, 540);
+            this.label1.Location = new System.Drawing.Point(17, 559);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(436, 112);
             this.label1.TabIndex = 23;
