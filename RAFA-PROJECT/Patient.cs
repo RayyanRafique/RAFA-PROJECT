@@ -55,7 +55,7 @@ namespace RAFA_PROJECT
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
 
         }
 
@@ -111,16 +111,23 @@ namespace RAFA_PROJECT
             var user = await usersCollection.Find(u => u.Id == _userId).FirstOrDefaultAsync();
             if (user != null)
             {
-                var now = DateTime.Now;
-                var medicinesToTake = user.Medicines.Where(m => m.TimeToTake.TimeOfDay == now.TimeOfDay).ToList();
+                var now = DateTime.UtcNow;  // Use UTC time for now
+
+               
+
+
+                var timeWindow = TimeSpan.FromMinutes(1); // Adjust this as needed
+                var medicinesToTake = user.Medicines
+                    .Where(m => Math.Abs((m.TimeToTake.ToUniversalTime() - now).TotalMinutes) <= timeWindow.TotalMinutes)
+                    .ToList();
 
                 foreach (var medicine in medicinesToTake)
                 {
                     MessageBox.Show($"Time to take your medicine: {medicine.Name}\nDosage: {medicine.Dosage}\nSpecial Instructions: {medicine.SpecialInstructions}");
-                    this.Close();
                 }
             }
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
