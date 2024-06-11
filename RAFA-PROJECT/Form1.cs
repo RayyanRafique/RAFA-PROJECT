@@ -68,7 +68,7 @@ namespace RAFA_PROJECT
             {
                 MessageBox.Show("Sign in successful!");
                 // Create an instance of the main page and pass the username
-                MainPage mainPage = new MainPage(user.fName);
+                MainPage mainPage = new MainPage(user.fName, user.Id, client);
                 mainPage.Show();
                 this.Hide();
             }
@@ -76,7 +76,7 @@ namespace RAFA_PROJECT
             {
                 MessageBox.Show("Invalid email or password!");
             }
-            this.Close();
+            //this.Close();
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 namespace RAFA_PROJECT
 {
     public class User
@@ -19,6 +20,14 @@ namespace RAFA_PROJECT
 
         [BsonElement("Password")]
         public string Password { get; set; }
+
+        [BsonElement("medicines")]
+        public List<Medicine> Medicines { get; set; }
+
+        public User()
+        {
+            Medicines = new List<Medicine>();
+        }
     }
 
 }

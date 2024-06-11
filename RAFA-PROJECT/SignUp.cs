@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -158,11 +159,11 @@ namespace RAFA_PROJECT
             await usersCollection.InsertOneAsync(newUser);
 
             MessageBox.Show("User signed up successfully!");
-
+            var _userID = newUser.Id;
             
             // Close the sign-up form and open the main page
             this.Close();
-            MainPage mainPage = new MainPage(newUser.fName); // Pass the first name or any identifier as needed
+            MainPage mainPage = new MainPage(newUser.fName, _userID , client); // Pass the first name or any identifier as needed
             mainPage.Show();
 
         }
